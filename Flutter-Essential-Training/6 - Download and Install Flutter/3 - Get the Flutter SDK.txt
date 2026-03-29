@@ -1,0 +1,46 @@
+To download and install Flutter on Windows, you can follow these steps:
+
+Step 1: Check system requirements
+Before installing Flutter, ensure that your system meets the following requirements:
+- Operating System: Windows 7 SP1 or later (64-bit)
+- Disk Space: 400 MB (excluding IDE and additional plugins)
+- Tools: Git for Windows (if not already installed)
+
+Step 2: Download Flutter
+1. Visit the official Flutter website: https://flutter.dev/
+2. Click on the "Get Started" button.
+3. Scroll down and click on the "Windows" tab.
+4. Click on the "Download Flutter SDK for Windows" button to download the Flutter SDK as a ZIP archive.
+
+Step 3: Extract the Flutter SDK
+1. Locate the downloaded ZIP file (flutter_windows_xxx.zip) and extract it to a suitable location on your computer (e.g., C:\src\flutter). This will create the Flutter installation directory.
+
+Step 4: Update system PATH variable
+1. Open File Explorer and right-click on "This PC" or "My Computer".
+2. Select "Properties" from the context menu.
+3. Click on "Advanced system settings" on the left side of the window.
+4. In the System Properties window, click on the "Environment Variables" button.
+5. In the "System Variables" section, scroll down and select the "Path" variable, then click on the "Edit" button.
+6. Click on the "New" button and add the full path to the "bin" directory inside the Flutter installation directory (e.g., C:\src\flutter\bin).
+7. Click "OK" on all the open windows to save the changes.
+
+Step 5: Install Dart SDK
+1. Visit the Dart SDK download page: https://dart.dev/tools/sdk/archive
+2. Under the "Windows" section, click on the "64-bit" link to download the Dart SDK as a ZIP archive.
+3. Locate the downloaded ZIP file (dartsdk-windows-x64-release.zip) and extract it to a suitable location on your computer (e.g., C:\src\dart).
+
+Step 6: Update the PATH variable for Dart SDK
+1. Follow the same steps as in Step 4 to open the Environment Variables window.
+2. In the "System Variables" section, scroll down and select the "Path" variable, then click on the "Edit" button.
+3. Click on the "New" button and add the full path to the "bin" directory inside the Dart SDK installation directory (e.g., C:\src\dart\bin).
+4. Click "OK" on all the open windows to save the changes.
+
+Step 7: Verify the installation
+1. Open a new Command Prompt window by pressing Win + R, typing "cmd," and hitting Enter.
+2. Run the following command to verify that Flutter is correctly installed:
+   ```
+   flutter doctor
+   ```
+   This command checks the Flutter installation and reports any issues or missing dependencies. Follow the instructions if any issues are found.
+
+That's it! You have successfully downloaded and installed Flutter on your Windows system. Now you can start developing Flutter applications.

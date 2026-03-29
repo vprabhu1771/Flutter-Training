@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+class CategoryScreen extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Category Screen'),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton( 
+            icon: Icon(Icons.notifications),
+            onPressed: () {},
+          )
+        ],
+        backgroundColor: Colors.orangeAccent,
+        leading: IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text("Menu Works"),
+                  action: SnackBarAction(
+                    label: 'Undo',
+                    onPressed: () {},
+                    ),
+                ),
+              );
+            },
+        ),
+      ),
+      body: Center(
+        child: Text('Hello, Category Screen!'),
+      ),
+    );
+    
+  }
+
+}

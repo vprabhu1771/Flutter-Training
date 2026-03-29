@@ -1,0 +1,10 @@
+https://stackoverflow.com/questions/48893935/how-can-i-remove-the-debug-banner-in-flutter
+
+
+MaterialApp(
+  debugShowCheckedModeBanner: false
+)
+
+CupertinoApp(
+  debugShowCheckedModeBanner: false
+)

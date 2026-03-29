@@ -1,0 +1,5 @@
+if download not started try Click direct download link.
+
+Go to Browser Downloads to see download is complete
+
+Short cut: CTRL + j

@@ -1,0 +1,43 @@
+To set up Flutter with Visual Studio and include the C++ workload, follow these steps:
+
+1. Install Visual Studio: 
+   - Download and install Visual Studio from the official Microsoft website: https://visualstudio.microsoft.com/downloads/.
+   - Make sure to select the "Desktop development with C++" workload during the installation process. This will install the necessary components for C++ development.
+
+2. Install Flutter SDK:
+   - Download the Flutter SDK from the official Flutter website: https://flutter.dev/docs/get-started/install.
+   - Extract the downloaded SDK to a desired location on your computer.
+
+3. Set up Flutter environment variables:
+   - Open the Start menu and search for "Environment Variables" and open the "Edit the system environment variables" option.
+   - Click on the "Environment Variables" button.
+   - Under the "System variables" section, click on "New" to add a new variable.
+   - Set the variable name as "FLUTTER_HOME" and the variable value as the path to the Flutter SDK directory.
+   - Locate the "Path" variable, select it, and click on "Edit".
+   - Add a new entry with the value "%FLUTTER_HOME%\bin".
+
+4. Install the Flutter and Dart extensions in Visual Studio:
+   - Launch Visual Studio.
+   - Open the Extensions view by clicking on "Extensions" in the side toolbar or by pressing "Ctrl+Shift+X".
+   - Search for "Flutter" in the Extensions view and install the official Flutter extension by Dart Code.
+   - Similarly, search for "Dart" in the Extensions view and install the official Dart extension by Dart Code.
+
+5. Configure Flutter SDK in Visual Studio:
+   - Open Visual Studio and go to the "View" menu.
+   - Select "Command Palette" or press "Ctrl+Shift+P".
+   - Type "Flutter: New Application Project" and select it from the list.
+   - Choose a location for your Flutter project and provide a name for it.
+   - Once the project is created, open the project folder in Visual Studio.
+
+6. Build the Flutter project:
+   - Open the terminal in Visual Studio by going to the "View" menu and selecting "Terminal" or by pressing "Ctrl+`".
+   - Run the following command in the terminal to fetch the dependencies for your Flutter project:
+     ```
+     flutter pub get
+     ```
+   - After the dependencies are fetched, you can build and run the Flutter project using the following command:
+     ```
+     flutter run
+     ```
+
+Now you have successfully set up Flutter with Visual Studio and included the C++ workload. You can start developing Flutter apps with C++ integration using Visual Studio as your IDE.

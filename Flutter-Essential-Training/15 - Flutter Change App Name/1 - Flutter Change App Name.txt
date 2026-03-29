@@ -1,0 +1,9 @@
+https://www.youtube.com/watch?v=eMHbgIgJyUQ
+
+IOS
+C:\Users\windows_rig3\StudioProjects\untitled1\ios\Runner\Info.plist
+
+
+ANDROID
+
+C:\Users\windows_rig3\StudioProjects\untitled1\android\app\src\main\AndroidManifest.xml

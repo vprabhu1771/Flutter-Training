@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+import 'package:carousel_images/carousel_images.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  List<String> imageList = [
+    'assets/carousel/1.jpg',
+    'assets/carousel/2.jpg',
+    'assets/carousel/3.jpg',
+    'assets/carousel/4.jpg'
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Text(
+          'Image Carousel Example',
+          style: TextStyle(color: Colors.white),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.settings, color: Colors.white),
+            onPressed: () {},
+          )
+        ],
+      ),
+      body: Align(
+        alignment: Alignment.topCenter,
+        child: CarouselImages(
+          scaleFactor: 0.6,
+          listImages: imageList,
+          height: 300.0,
+          borderRadius: 30.0,
+          cachedNetworkImage: true,
+          verticalAlignment: Alignment.topCenter,  // Corrected property name
+          onTap: (index){
+            print('Tapped on page $index');
+          },
+        ),
+      ),
+    );
+  }
+}

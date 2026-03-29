@@ -1,0 +1,1 @@
+https://pub.dev/packages/bluetooth_thermal_printer/install

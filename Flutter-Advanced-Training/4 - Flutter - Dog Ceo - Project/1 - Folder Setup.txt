@@ -1,0 +1,16 @@
+lib -> util
+
+lib -> models
+
+lib -> screens
+
+
+File Setup
+
+lib -> util -> Constants.dart
+
+lib -> models -> Dog.dart
+
+lib -> screens -> HomeScreen.dart
+
+lib -> screens -> DogScreen.dart

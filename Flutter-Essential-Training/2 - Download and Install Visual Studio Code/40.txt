@@ -1,0 +1,10 @@
+Type telemetry
+
+Untick Enable crash reports to be sent to a Microsoft online 
+service
+
+Untick Enable usage data and errors to be sent to a Microsoft Online service. Read our privacy statement here.
+
+Go To File Menu -> Save
+
+Shortcut CTRL + S

@@ -1,0 +1,57 @@
+import 'package:arnold_gym/navigation/drawer.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+class WorkoutScreen extends StatefulWidget {
+  @override
+  _WorkoutScreenState createState() => _WorkoutScreenState();
+}
+
+class _WorkoutScreenState extends State<WorkoutScreen> {
+  List<dynamic> items = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchDataFromAPI();
+  }
+
+  Future<void> fetchDataFromAPI() async {
+    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/todos'));
+    if (response.statusCode == 200) {
+      setState(() {
+        items = json.decode(response.body);
+      });
+    } else {
+      // Handle API error
+      print('API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<void> refreshData() async {
+    await fetchDataFromAPI();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Workouts'),
+      ),
+      body: RefreshIndicator(
+        onRefresh: refreshData,
+        child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return ListTile(
+              title: Text(item['title']),
+              subtitle: Text('ID: ${item['id']}'),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}

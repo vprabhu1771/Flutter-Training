@@ -1,0 +1,51 @@
+The error message you received indicates that the `JAVA_HOME` environment variable is not set or configured correctly, and the system cannot locate the Java executable in your system's `PATH` variable. 
+
+To resolve this issue, you need to set the `JAVA_HOME` environment variable and add the Java executable location to your `PATH` variable. Here's how you can do it:
+
+Step 1: Check if Java is installed
+- Open a command prompt or terminal window.
+- Type `java -version` and press Enter.
+- If Java is installed, it will display the version information. If not, you need to install Java before proceeding further.
+
+Step 2: Set the JAVA_HOME environment variable
+- Determine the installation directory of Java on your system.
+- In Windows:
+  - Right-click on the "This PC" or "My Computer" icon and select "Properties."
+  - Click on "Advanced system settings" on the left.
+  - In the System Properties window, click on the "Environment Variables" button.
+  - Under the "System variables" section, click "New" to create a new environment variable.
+  - Enter `JAVA_HOME` as the variable name.
+  - Enter the path to the Java installation directory as the variable value (e.g., `C:\Program Files\Java\jdk1.8.0_221`).
+  - Click "OK" to save the changes.
+- In macOS and Linux:
+  - Open a terminal window.
+  - Open the `.bash_profile` or `.bashrc` file in a text editor. For example, you can use the command `nano ~/.bash_profile` or `nano ~/.bashrc`.
+  - Add the following line at the end of the file:
+    ```
+    export JAVA_HOME=/path/to/java
+    ```
+  - Replace `/path/to/java` with the actual path to the Java installation directory.
+  - Save the file and exit the text editor.
+
+Step 3: Add Java to the PATH variable
+- In Windows:
+  - In the same "Environment Variables" window, scroll down to the "System variables" section.
+  - Select the "Path" variable and click on the "Edit" button.
+  - In the "Edit Environment Variable" window, click on the "New" button.
+  - Enter `%JAVA_HOME%\bin` as the variable value.
+  - Click "OK" to save the changes.
+- In macOS and Linux:
+  - Open the `.bash_profile` or `.bashrc` file in a text editor.
+  - Add the following line at the end of the file:
+    ```
+    export PATH=$PATH:$JAVA_HOME/bin
+    ```
+  - Save the file and exit the text editor.
+
+Step 4: Verify the changes
+- Close any open command prompt or terminal windows.
+- Reopen a new command prompt or terminal window.
+- Type `java -version` and press Enter.
+- If the `JAVA_HOME` and `PATH` configurations were done correctly, it should display the Java version information without any errors.
+
+By following these steps, you should be able to resolve the "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH" issue.

@@ -1,0 +1,34 @@
+Set up your Flutter project and add the necessary dependencies. You will need the http package 
+for making API requests and the flutter_bloc package for state management. 
+Update your pubspec.yaml file as follows:
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.4
+  flutter_bloc: ^8.0.1
+
+
+To install a package in Flutter, you can use the `flutter pub get` command. Here's how you can 
+install a package using the command line:
+
+1. Open a terminal or command prompt.
+
+2. Navigate to your Flutter project directory using the `cd` command.
+
+3. Run the following command to install the package:
+
+   ```
+   flutter pub get
+   ```
+
+   This command will fetch and download the package specified in your `pubspec.yaml` file and 
+its dependencies.
+
+4. Once the command completes successfully, the package and its dependencies will be installed 
+in your Flutter project.
+
+Remember to specify the package you want to install in your `pubspec.yaml` file under the 
+`dependencies` section before running `flutter pub get`. After installing a new package or 
+updating existing packages, you may need to restart your IDE or rebuild your Flutter app to 
+use the newly installed package.

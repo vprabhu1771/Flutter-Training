@@ -1,0 +1,38 @@
+Here's a complete Flutter code example that demonstrates the use of `ElevatedButton`:
+
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('ElevatedButton Example'),
+        ),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              // Handle button press
+              print('Button pressed!');
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.blue, // Background color
+              onPrimary: Colors.white, // Text color
+              padding: EdgeInsets.all(16.0), // Padding around the button content
+            ),
+            child: Text('Press me'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+In this example, we create a simple Flutter app with an `AppBar` and a `Center` widget containing an `ElevatedButton`. The `ElevatedButton` is customized with a blue background color, white text color, and additional padding. When the button is pressed, a message is printed to the console. You can copy and run this code in your Flutter environment to see the `ElevatedButton` in action.

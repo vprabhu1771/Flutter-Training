@@ -1,0 +1,1 @@
+https://pub.dev/packages/fancy_cart

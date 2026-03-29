@@ -1,0 +1,10 @@
+C:\Users\windows_rig3>flutter doctor
+Found an existing Pub cache at C:\Users\windows_rig3\AppData\Local\Pub\Cache.
+It can be repaired by running `dart pub cache repair`.
+It can be reset by running `dart pub cache clean`.
+
+
+sdkmanager --sdk_root=C:\Users\windows_rig3\AppData\Local\Android\Sdk --install "cmdline-tools;latest"
+
+
+flutter doctor --android-licenses

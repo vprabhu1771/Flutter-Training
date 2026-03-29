@@ -1,0 +1,16 @@
+lib -> util
+
+lib -> services
+
+lib -> models
+
+lib -> screens
+
+
+File Setup
+
+lib -> util -> Constants.dart
+
+lib -> models -> Brand.dart
+
+lib -> screens -> BrandScreen.dart

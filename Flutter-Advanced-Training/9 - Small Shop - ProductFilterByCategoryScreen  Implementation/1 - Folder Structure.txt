@@ -1,0 +1,16 @@
+lib -> util
+
+lib -> services
+
+lib -> models
+
+lib -> screens
+
+
+File Setup
+
+lib -> util -> Constants.dart
+
+lib -> models -> Product.dart
+
+lib -> screens -> ProductFilterByCategoryScreen.dart

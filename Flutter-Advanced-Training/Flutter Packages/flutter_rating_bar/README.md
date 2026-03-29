@@ -1,0 +1,1 @@
+https://pub.dev/packages/flutter_rating_bar

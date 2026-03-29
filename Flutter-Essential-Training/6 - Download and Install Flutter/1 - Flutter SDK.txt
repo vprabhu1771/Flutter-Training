@@ -1,0 +1,10 @@
+You can download and setup flutter from here at flutter.dev and You can follow the documentation 
+depends on your own device and os.
+
+Offical: https://flutter.dev/
+
+Windows: https://docs.flutter.dev/get-started/install/windows
+
+Mac: https://docs.flutter.dev/get-started/install/macos
+
+Linux: https://docs.flutter.dev/get-started/install/linux

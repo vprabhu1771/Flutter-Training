@@ -1,0 +1,5 @@
+Enable Auto Save
+
+Click File Menu -> Auto Save
+
+Make Sure Ticked

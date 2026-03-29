@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+class CategoryScreen extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Category Screen'),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton( 
+            icon: Icon(Icons.notifications),
+            onPressed: () {},
+          )
+        ],
+        backgroundColor: Colors.orangeAccent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25),
+            topRight: Radius.circular(25),
+            bottomLeft: Radius.circular(25),
+            bottomRight: Radius.circular(25),
+          )
+        ),
+      ),
+      body: Center(
+        child: Text('Hello, Category Screen!'),
+      ),
+    );
+    
+  }
+
+}

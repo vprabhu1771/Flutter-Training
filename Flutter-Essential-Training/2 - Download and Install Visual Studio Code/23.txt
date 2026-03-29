@@ -1,0 +1,12 @@
+Click checkbox Create a desktop icon
+
+Click checkbox Add “Open with Code” action to Windows Explorer file context menu
+
+Click checkbox Add “Open with Code” action to Windows Explorer
+directory context menu
+
+Click checkbox Register Code as an editor for supported file types
+
+Click checkbox Add to PATH (requires shell restart)
+
+Click Next

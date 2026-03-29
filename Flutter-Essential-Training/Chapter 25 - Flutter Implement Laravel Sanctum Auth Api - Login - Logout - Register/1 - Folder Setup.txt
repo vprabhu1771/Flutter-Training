@@ -1,0 +1,22 @@
+lib -> util
+
+lib -> services
+
+lib -> models
+
+lib -> screens
+
+
+File Setup
+
+lib -> util -> Constants.dart
+
+lib -> services -> dio.dart
+
+lib -> services -> auth.dart
+
+lib -> models -> User.dart
+
+lib -> screens -> HomeScreen.dart
+
+lib -> screens -> LoginScreen.dart

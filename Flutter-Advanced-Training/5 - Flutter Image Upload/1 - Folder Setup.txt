@@ -1,0 +1,20 @@
+lib -> util
+
+lib -> models
+
+lib -> screens
+
+
+File Setup
+
+lib -> util -> Constants.dart
+
+lib -> models -> Image.dart
+
+lib -> screens -> ImageUploadScreen.dart
+
+lib -> screens -> VideoUploadScreen.dart
+
+lib -> screens -> PdfUploadScreen.dart
+
+lib -> screens -> HomeScreen.dart

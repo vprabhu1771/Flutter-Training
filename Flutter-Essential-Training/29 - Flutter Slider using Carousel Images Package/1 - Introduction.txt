@@ -1,0 +1,36 @@
+https://pub.dev/packages/carousel_images
+
+To include assets in your Flutter project, you typically specify them in the `pubspec.yaml` file. Here's an example of how you can include the assets you mentioned:
+
+1. Open your `pubspec.yaml` file in the root of your Flutter project.
+
+2. Update the `flutter` section to include the assets. Add or modify the `assets` field with the path to your images:
+
+   ```yaml
+   flutter:
+     assets:
+       - assets/carousel/1.jpg
+       - assets/carousel/2.jpg
+       - assets/carousel/3.jpg
+       - assets/carousel/4.jpg
+   ```
+
+   Ensure that the indentation is correct, as YAML is sensitive to indentation.
+
+3. Save the `pubspec.yaml` file.
+
+4. Run the following command in your terminal to get the assets:
+
+   ```bash
+   flutter pub get
+   ```
+
+This informs Flutter to include these assets in the build. Now, you can reference these assets in your Flutter code. For example, if you have an image widget:
+
+```dart
+Image.asset('assets/carousel/1.jpg')
+```
+
+Make sure to use the correct path when referencing the assets in your code.
+
+After making these changes, you should be able to access and use these assets in your Flutter project.

@@ -1,0 +1,1 @@
+https://pub.dev/packages/esc_pos_utils

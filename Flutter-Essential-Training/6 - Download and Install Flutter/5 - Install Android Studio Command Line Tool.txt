@@ -1,0 +1,32 @@
+To install the Android SDK Command-Line Tools on Windows 10, you can follow these steps:
+
+1. Go to the official Android Studio website: [https://developer.android.com/studio/index.html](https://developer.android.com/studio/index.html).
+
+2. Scroll down to the "Command line tools only" section and click on the "Download" link corresponding to your operating system (Windows).
+
+3. Once the download is complete, locate the downloaded ZIP file and extract its contents to a directory of your choice. For example, you can create a folder called `Android` in your `C:` drive and extract the contents there.
+
+4. Open File Explorer and navigate to the directory where you extracted the contents of the ZIP file.
+
+5. Inside the extracted folder, locate the `tools` folder and open it.
+
+6. While holding the Shift key, right-click on an empty area inside the `tools` folder, and then select "Open command window here" or "Open PowerShell window here." This will open a command prompt or PowerShell window with the current directory set to the `tools` folder.
+
+7. In the command prompt or PowerShell window, type the following command to start the Android SDK Manager:
+
+   ```
+   sdkmanager.bat
+   ```
+
+   This will initiate the installation of the Android SDK packages. If you encounter a message about updating the SDK tools, you can choose to update them by entering `y` and pressing Enter.
+
+8. The SDK Manager will display a list of available packages. You can install specific packages by typing their corresponding numbers and pressing Enter. For example, if you want to install the latest Android SDK Platform, type `1` and press Enter. Follow the prompts to accept the licenses and complete the installation.
+
+9. Once the installation is complete, you can close the SDK Manager.
+
+Congratulations! You have successfully installed the Android SDK Command-Line Tools on Windows 10. You can now use the tools for various development tasks, such as building and debugging Android applications from the command line.
+
+
+C:\cmdline-tools\bin>sdkmanager --sdk_root=C:\Users\windows_rig1\AppData\Local\Android\Sdk --install "cmdline-tools;latest"
+
+[=======================================] 100% Unzipping... cmdline-tools/lib/RE

@@ -1,0 +1,1 @@
+Click checkbox Launch Visual Studio Code and Click Finish

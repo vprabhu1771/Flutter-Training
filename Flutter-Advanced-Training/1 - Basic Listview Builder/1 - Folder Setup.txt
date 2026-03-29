@@ -1,0 +1,7 @@
+lib -> models
+
+lib -> screens
+
+lib -> models -> Country.dart
+
+lib -> screens -> CountryListScreen.dart

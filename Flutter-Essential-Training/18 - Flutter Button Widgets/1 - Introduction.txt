@@ -1,0 +1,60 @@
+In Flutter, the `ElevatedButton` and `TextButton` widgets are commonly used to create buttons. These widgets provide different styles for buttons with different visual effects. Here's a brief overview of how you can use these widgets:
+
+### ElevatedButton:
+
+The `ElevatedButton` widget is typically used for raised buttons. It has a default elevated appearance.
+
+
+ElevatedButton(
+  onPressed: () {
+    // Handle button press
+  },
+  child: Text('Press me'),
+)
+
+
+You can customize the appearance of the `ElevatedButton` using the `style` property:
+
+
+ElevatedButton(
+  onPressed: () {
+    // Handle button press
+  },
+  style: ElevatedButton.styleFrom(
+    // Add styling properties here
+    primary: Colors.blue, // Background color
+    onPrimary: Colors.white, // Text color
+  ),
+  child: Text('Press me'),
+)
+
+
+### TextButton:
+
+The `TextButton` widget is used for flat-style buttons with no elevation.
+
+
+TextButton(
+  onPressed: () {
+    // Handle button press
+  },
+  child: Text('Press me'),
+)
+
+
+You can also customize the appearance of the `TextButton` using the `style` property:
+
+
+TextButton(
+  onPressed: () {
+    // Handle button press
+  },
+  style: TextButton.styleFrom(
+    // Add styling properties here
+    primary: Colors.blue, // Text color
+  ),
+  child: Text('Press me'),
+)
+
+
+These are just basic examples, and you can further customize the buttons by adjusting other properties like `padding`, `onLongPress`, `focusNode`, etc. Explore the Flutter documentation for these widgets to discover more customization options: [ElevatedButton](https://api.flutter.dev/flutter/material/ElevatedButton-class.html) and [TextButton](https://api.flutter.dev/flutter/material/TextButton-class.html).

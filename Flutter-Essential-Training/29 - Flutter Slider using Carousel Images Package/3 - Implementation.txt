@@ -1,0 +1,90 @@
+The `carousel_images` package on pub.dev is a Flutter package that provides a simple way to create a carousel of images in your Flutter application. To implement it, you need to follow these steps:
+
+1. **Add the dependency to your `pubspec.yaml` file:**
+
+   Open your `pubspec.yaml` file and add the following dependency:
+
+   dependencies:
+     carousel_images: ^0.5.2
+
+   Then, run `flutter pub get` in your terminal to fetch the package.
+
+2. **Import the package in your Dart file:**
+
+   In the Dart file where you want to use the carousel, import the package:
+
+
+   import 'package:carousel_images/carousel_images.dart';
+
+
+3. **Create a list of image URLs or local asset paths:**
+
+   Prepare a list of image URLs or local asset paths that you want to display in the carousel.
+
+
+   List<String> imageList = [
+     'https://example.com/image1.jpg',
+     'https://example.com/image2.jpg',
+     'https://example.com/image3.jpg',
+     // Add more image URLs or local asset paths as needed
+   ];
+
+
+4. **Implement the `CarouselImages` widget:**
+
+   Use the `CarouselImages` widget to display the carousel in your Flutter app. Pass the `imageList` to the `imageList` parameter of the widget.
+
+
+   CarouselImages(
+     scaleFactor: 0.8, // Optional: Adjust the scale factor
+     borderRadius: true, // Optional: Add a border-radius to the images
+     listImages: imageList,
+     height: 200, // Set the height of the carousel
+     width: MediaQuery.of(context).size.width, // Set the width of the carousel
+     enlargeCenterPage: true, // Optional: Enlarge the center image
+   )
+
+
+   Customize the parameters based on your requirements. The `scaleFactor`, `borderRadius`, `enlargeCenterPage`, and other parameters are optional and can be adjusted according to your design preferences.
+
+Here's an example of how you might implement the `carousel_images` package in a complete Flutter app:
+
+
+import 'package:flutter/material.dart';
+import 'package:carousel_images/carousel_images.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<String> imageList = [
+      'https://example.com/image1.jpg',
+      'https://example.com/image2.jpg',
+      'https://example.com/image3.jpg',
+    ];
+
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Image Carousel Example'),
+        ),
+        body: Center(
+          child: CarouselImages(
+            scaleFactor: 0.8,
+            borderRadius: true,
+            listImages: imageList,
+            height: 200,
+            width: MediaQuery.of(context).size.width,
+            enlargeCenterPage: true,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+Adjust the URLs, styling, and other parameters as needed for your specific use case.
