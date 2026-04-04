@@ -22,13 +22,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static const List<String> listItems = <String> [
     'Apple',
-    'Ornage',
+    'Orange',
     'Mango'
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Autocomplete<String>(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Autocomplete"),
+      ),
+      body: Autocomplete<String>(
         optionsBuilder: (TextEditingValue textEditingValue) {
           if(textEditingValue.text == '') {
             return const Iterable<String>.empty();
@@ -37,9 +41,17 @@ class _HomeScreenState extends State<HomeScreen> {
             return item.contains(textEditingValue.text);
           });
         },
-      onSelected: (String item) {
+        onSelected: (String item) {
           print("$item selected");
-      },
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("$item selected"),
+              duration: const Duration(seconds: 2),
+            ),
+          );
+        },
+      )
     );
   }
 }
