@@ -29,15 +29,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
     _checkForUpdate();
     loadVersion();
-    startApp();
-
-    // Timer(Duration(seconds: 3), () {
-    //   // Navigate to HomeScreen
-    //   Navigator.pushReplacement(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => MobileNumberScreen()),
-    //   );
-    // });
   }
 
 
@@ -74,34 +65,6 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  void startApp() async {
-    await Future.delayed(Duration(seconds: 3));
-
-    if (!mounted) return; // ✅ Prevent crash
-
-    checkLogin();
-  }
-
-  void checkLogin() async {
-    final token = await AuthService.getToken();
-
-    // print("Check Login: $token");
-
-    if (!mounted) return; // ✅ Important
-
-    if (token != null && token.isNotEmpty) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => LockScreen()),
-      );
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => MobileNumberScreen()),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
               Center(
                 child: Image.asset(
-                  'assets/thooyan_logo.png',
+                  'assets/logo.png',
                   width: 150,
                 ),
               ),
