@@ -100,3 +100,5 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 ```
+
+![Image](1.png)
