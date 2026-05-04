@@ -2,9 +2,6 @@
 https://stackoverflow.com/questions/72592081/get-the-list-of-user-sim-cards-and-select-it-flutter
 ```
 
-```
-https://pub.dev/packages/sim_data
-```
 
 ```
 https://pub.dev/packages/mobile_number
