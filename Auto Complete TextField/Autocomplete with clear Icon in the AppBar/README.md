@@ -102,3 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
 If you want the clear button **inside the text field instead of AppBar**, I can show that too (more common pattern).
 
 Just say 👍
+![Image](1.png)
+![Image](2.png)
+![Image](3.png)
