@@ -31,7 +31,12 @@ void main() {
 
 @pragma("vm:entry-point")
 void overlayMain() {
-  runApp(const ChatHeadOverlay());
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ChatHeadOverlay(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
