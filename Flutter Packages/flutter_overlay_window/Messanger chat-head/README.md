@@ -76,8 +76,14 @@ class MyApp extends StatelessWidget {
 ### 3. Overlay Widget
 
 ```dart
-class ChatHeadOverlay extends StatelessWidget {
+class ChatHeadOverlay extends StatefulWidget {
   const ChatHeadOverlay({super.key});
+
+  @override
+  State<ChatHeadOverlay> createState() => _ChatHeadOverlayState();
+}
+
+class _ChatHeadOverlayState extends State<ChatHeadOverlay> {
 
   @override
   Widget build(BuildContext context) {
