@@ -38,16 +38,16 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   Future<void> showChatHead() async {
-    bool granted = await FlutterOverlayWindow.isPermissionGranted();
+    bool? granted = await FlutterOverlayWindow.isPermissionGranted();
 
     if (!granted) {
       granted = await FlutterOverlayWindow.requestPermission();
     }
 
-    if (granted) {
+    if (granted!) {
       await FlutterOverlayWindow.showOverlay(
-        height: 100,
-        width: 100,
+        height: 200,
+        width: 200,
         enableDrag: true,
         positionGravity: PositionGravity.auto,
         overlayTitle: "Chat Head",
