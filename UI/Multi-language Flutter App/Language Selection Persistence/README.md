@@ -83,6 +83,8 @@ Future<void> _loadLanguage() async {
 Place it under **Preferences** section.
 
 ```dart
+import 'package:provider/provider.dart';
+
 _buildSettingTile(
   icon: Icons.language,
   title: 'Language',
