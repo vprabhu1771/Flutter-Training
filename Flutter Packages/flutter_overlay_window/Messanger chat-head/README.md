@@ -81,6 +81,10 @@ class MyApp extends StatelessWidget {
 ### 3. Overlay Widget
 
 ```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_overlay_window/flutter_overlay_window.dart';
+
+
 class ChatHeadOverlay extends StatefulWidget {
   const ChatHeadOverlay({super.key});
 
