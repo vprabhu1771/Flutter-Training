@@ -1,3 +1,4 @@
+```
 import 'package:flutter/material.dart';
 
 class LifecycleObserver extends StatefulWidget {
@@ -40,3 +41,4 @@ class _LifecycleObserverState extends State<LifecycleObserver> with WidgetsBindi
     return Container();
   }
 }
+```
