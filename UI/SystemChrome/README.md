@@ -1,4 +1,4 @@
-```
+```dart
 void main() async {
   // 1. Crucial: This must be called before interacting with the native platform
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,4 +19,9 @@ void main() async {
 
   runApp(const MyApp());
 }
+
 ```
+
+### Why is `WidgetsFlutterBinding.ensureInitialized()` needed?
+
+The `SystemChrome` methods communicate with the native host platform (Android/iOS) using asynchronous platform channels. If you call these before `runApp()`, Flutter hasn't fully booted its connection to the native side yet. `WidgetsFlutterBinding.ensureInitialized()` forces that connection to open early.
