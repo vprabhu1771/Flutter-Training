@@ -95,6 +95,18 @@ class ChatHeadOverlay extends StatefulWidget {
 class _ChatHeadOverlayState extends State<ChatHeadOverlay> {
 
   @override
+  void initState() {
+    super.initState();
+
+    FlutterOverlayWindow.overlayListener.listen((event) {
+      if (event == "chat_head_clicked") {
+        print("Chat head clicked");
+        print("chat head click working");
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
