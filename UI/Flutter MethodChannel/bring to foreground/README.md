@@ -142,3 +142,47 @@ class MainActivity : FlutterActivity() {
 
 }
 ```
+
+`companion object` functions are **Kotlin functions**, not Flutter functions. You **cannot call them directly from Dart**.
+
+You can only call them from **Android (Kotlin/Java)** code.
+
+For example, from another Kotlin class:
+
+```kotlin
+MainActivity.openApp(context)
+```
+
+or
+
+```kotlin
+MainActivity.launchFromOverlay(context)
+```
+
+where `context` is an Android `Context` (such as a `Service`, `BroadcastReceiver`, or `Activity`).
+
+### Example from a Service
+
+```kotlin
+class MyService : Service() {
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+
+        MainActivity.openApp(this)
+
+        return START_NOT_STICKY
+    }
+
+    override fun onBind(intent: Intent?) = null
+}
+```
+
+### Example from a BroadcastReceiver
+
+```kotlin
+class OpenAppReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent?) {
+        MainActivity.openApp(context)
+    }
+}
+```
