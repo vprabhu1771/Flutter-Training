@@ -69,3 +69,76 @@ To make sure you never miss an order, your Flutter app should be structured like
 2. Look into **`awesome_notifications`** which has great built-in support for background waking and channels.
 
 Are you building this for a private fleet of drivers (where you can easily ask them to enable manual settings) or are you planning to publish this on the public Google Play and Apple App Stores?
+
+
+
+####
+
+`MainActivity.kt`
+```kotlin
+package com.example.untitled
+
+import android.media.RingtoneManager
+import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.MethodChannel
+import android.content.Context
+import android.content.Intent
+import android.database.Cursor
+
+class MainActivity : FlutterActivity() {
+
+    private val CHANNEL = "com.pushpa.driverpushpa/app_control"
+
+    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+        super.configureFlutterEngine(flutterEngine)
+
+        println("CHANNEL REGISTERED")
+
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result ->
+            println(call.method)
+
+            when (call.method) {
+
+                "bringAppToForeground" -> {
+                    bringAppToForeground()
+                    result.success(true)
+                }
+                else -> {
+                    result.notImplemented()
+                }
+            }
+        }
+    }
+
+    private fun bringAppToForeground() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            // Reorders to front if already running, starts it if not.
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+        }
+        startActivity(intent)
+    }
+
+    companion object {
+        fun launchFromOverlay(context: Context) {
+            val intent = Intent(context, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or
+                        Intent.FLAG_ACTIVITY_SINGLE_TOP // Prevents recreating MainActivity if it's already on top
+            }
+            context.startActivity(intent)
+        }
+
+        fun openApp(context: Context) {
+            val intent = Intent(context, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+            }
+
+            context.startActivity(intent)
+        }
+    }
+
+}
+```
