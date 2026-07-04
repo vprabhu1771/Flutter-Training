@@ -164,6 +164,18 @@ class _LifecycleObserverState extends State<LifecycleObserver> with WidgetsBindi
         print('App restored!');
         hideChatHead();
         break;
+      case AppLifecycleState.detached:
+        FlutterOverlayWindow.closeOverlay();
+        print('App detached');
+
+        break;
+
+      case AppLifecycleState.inactive:
+        break;
+
+      case AppLifecycleState.hidden:
+        break;
+
       default:
         break;
     }
