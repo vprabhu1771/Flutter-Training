@@ -162,9 +162,22 @@ class _LifecycleObserverState extends State<LifecycleObserver> with WidgetsBindi
       case AppLifecycleState.resumed:
       // App is restored and visible
         print('App restored!');
+        hideChatHead();
         break;
       default:
         break;
+    }
+  }
+
+  Future<void> hideChatHead() async {
+    bool? granted = await FlutterOverlayWindow.isPermissionGranted();
+
+    if (!granted) {
+      granted = await FlutterOverlayWindow.requestPermission();
+    }
+
+    if (granted!) {
+      await FlutterOverlayWindow.closeOverlay();
     }
   }
 
