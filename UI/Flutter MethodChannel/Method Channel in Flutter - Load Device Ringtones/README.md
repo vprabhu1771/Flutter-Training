@@ -193,3 +193,5 @@ class _RingtoneScreenState extends State<RingtoneScreen> {
 * **Channel Names match:** The `MethodChannel('flutter_channel')` in your Dart code perfectly matches the `val channel = "flutter_channel"` inside your Kotlin file.
 * **Method Names match:** `_channel.invokeMethod('getRingtones')` perfectly targets the `when (call.method) { "getRingtones" -> ... }` block in Kotlin.
 * **Pro-tip:** Don't forget to pass `this` (the context) to `getAllRingtones(this)` in your Kotlin file to avoid null-pointer exceptions during the platform call. You already have this implemented correctly in your snippet!
+
+![Image](1.png)
