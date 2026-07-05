@@ -3,6 +3,9 @@ To bring your minimized Flutter app to the foreground on Android programmaticall
 # Option 1: Using the `bg_launcher` Package
 
 The easiest way is to use a community plugin like `bg_launcher` or `bringtoforeground`.
+```
+https://pub.dev/packages/bg_launcher
+```
 
 # 1. Update `AndroidManifest.xml`
 
