@@ -28,8 +28,8 @@ GestureDetector(
 
 If you'd like, tell me:
 
-What is the target platform (Android, iOS, or Desktop)?
-
-Is this a standard app, or are you trying to keep services running in the background?
+# What is the target platform (Android, iOS, or Desktop)?
+ 
+# Is this a standard app, or are you trying to keep services running in the background?
 
 I can provide the exact plugin recommendations or background service configuration for your use case.
