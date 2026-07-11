@@ -1,3 +1,48 @@
+You're right! The code is missing the Android permission declaration in the AndroidManifest.xml file. Here's what you need to add:
+
+## Android Manifest Addition
+
+Add this permission to your `android/app/src/main/AndroidManifest.xml` file:
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Add this permission -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    
+    <!-- Optional: Add this for better camera experience on newer devices -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    
+    <application>
+        <!-- Your application configuration -->
+    </application>
+</manifest>
+```
+
+## Important Notes:
+
+1. **iOS Info.plist**: For iOS, you'll also need to add camera usage description:
+```xml
+<key>NSCameraUsageDescription</key>
+<string>We need camera access to scan QR codes, take profile pictures, and snap photos of documents</string>
+```
+
+2. **Android `android:required="false"`**: Setting this to `false` means your app can still be installed on devices without a camera, but you'll need to handle the case when no camera is available.
+
+3. **Add to pubspec.yaml**: Ensure you have the permission_handler package in your dependencies:
+```yaml
+dependencies:
+  permission_handler: ^11.0.1  # or latest version
+```
+
+4. **Android permission handling**: For Android 13+, you might also need to add:
+```xml
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+```
+if you're also accessing images from the gallery.
+
+After adding these permissions, your app will properly request camera access when the user toggles the switch.
+
 ```dart
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
