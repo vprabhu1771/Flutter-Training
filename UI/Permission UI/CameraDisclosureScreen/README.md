@@ -366,6 +366,6 @@ class _CameraDisclosureScreenState extends State<CameraDisclosureScreen> {
 }
 ```
 
-![Image](1.PNG)
-![Image](2.PNG)
-![Image](3.PNG)
+![Image](1.png)
+![Image](2.png)
+![Image](3.png)
