@@ -7,8 +7,13 @@ Here is a complete, minimal example of a **Taxi Booking** architecture using a *
 Create a new directory, run `npm init -y`, and install the required dependencies:
 
 ```bash
-npm install express socket.io
+npm install express socket.io dotenv
+```
 
+`.env`
+```env
+PORT=3000
+HOST=192.168.1.211
 ```
 
 ### `server.js`
