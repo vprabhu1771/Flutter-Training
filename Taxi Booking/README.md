@@ -93,6 +93,22 @@ server.listen(PORT, () => {
 
 Run the server using `node server.js`.
 
+```
+Server is running on http://192.168.1.211:3000
+User connected: eA7YS0VVrm894QMbAAAB
+Ride requested: {
+  bookingId: 'XYZ-998877',
+  passengerName: 'Alex',
+  pickup: 'Central Park',
+  dropoff: 'Times Square'
+}
+Ride accepted and sent to passenger.
+Sent driver location update step 1
+Sent driver location update step 2
+Sent driver location update step 3
+User disconnected: eA7YS0VVrm894QMbAAAB
+```
+
 ---
 
 ## 2. Flutter Mobile Frontend
