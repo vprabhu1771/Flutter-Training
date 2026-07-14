@@ -29,3 +29,12 @@ Compile your final optimized release assets and push them to Apple.
    ```
  - `Archive in Xcode`: Return to Xcode, select `Any iOS Device (arm64)` as the build target destination (do not select a simulator). Click `Product` in the top menu and select `Archive`.
  - `Distribute Build`: Once the archiving process completes, the Xcode Organizer window will automatically open. Select your archive, click `Distribute App`, choose` App Store Connect`, and follow the prompts to automatically upload it.
+
+# 4. Complete Store Listing & Submit
+
+Manage the public presentation details inside App Store Connect.
+ - `Screenshots`: Upload marketing visuals mapped to the requested device dimensions (such as 6.7-inch and 6.5-inch iPhones).
+ - `Store Metadata`: Fill out your app description, promotional text, keywords, support URLs, and contact info.
+ - `Privacy Policy`: Link your public privacy policy webpage under the `App Privacy` tab and fill out the data collection declarations.
+ - `Attach Build`: Scroll down to the `Build` section, click `+`, and link the version uploaded via Xcode (note: it may take 10-20 minutes to process after uploading before it appears).
+ - `Submit for Review`: Click `Save`, then click the `Submit for Review` button at the top right. Apple will typically review and approve the app within 24 to 48 hours.
