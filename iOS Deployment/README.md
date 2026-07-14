@@ -18,3 +18,14 @@ Open the native iOS wrapper of your project to align it with Apple's requirement
   - Under `Signing & Capabilities`, check `Automatically manage signing` and choose your Apple Developer team.
   - Under `General`, verify that the `Bundle Identifier` matches your registered Bundle ID exactly.
   - Update your user-facing `Version` string (e.g., 1.0.0) and set a unique `Build` number (e.g., `1`).
+
+# 3. Generate and Upload the Production Archive
+
+Compile your final optimized release assets and push them to Apple.
+
+ - `Run Build Command`: In your Flutter project root terminal, run the release compiler:
+   ```
+   flutter build ios --release
+   ```
+ - `Archive in Xcode`: Return to Xcode, select `Any iOS Device (arm64)` as the build target destination (do not select a simulator). Click `Product` in the top menu and select `Archive`.
+ - `Distribute Build`: Once the archiving process completes, the Xcode Organizer window will automatically open. Select your archive, click `Distribute App`, choose` App Store Connect`, and follow the prompts to automatically upload it.
