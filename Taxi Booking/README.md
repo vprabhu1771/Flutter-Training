@@ -264,3 +264,7 @@ class _TaxiBookingScreenState extends State<TaxiBookingScreen> {
 * **Android Emulator:** Use `http://10.0.2.2:3000` as configured above.
 * **iOS Simulator:** Use `http://localhost:3000`.
 * **Physical Device:** Use your machine’s explicit local network IP (e.g., `http://192.168.1.5:3000`) and make sure both your phone and machine are on the exact same Wi-Fi connection. Remember to configure Android network security configs if hitting non-HTTPS URLs on newer Android versions.
+
+![Image](1.png)
+![Image](2.png)
+![Image](3.png)
