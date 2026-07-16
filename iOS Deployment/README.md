@@ -17,6 +17,10 @@ pod install
 cd ..
 ```
 
+```
+flutter build ipa --release
+```
+
 To publish a Flutter app on the iOS App Store for production, you must use a macOS machine running Xcode and hold a paid Apple Developer Program membership ($99/year).
 
 The step-by-step process requires configuring your identifier, preparing your release build, uploading the archive, and submitting the store metadata.
