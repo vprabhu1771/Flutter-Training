@@ -4,6 +4,10 @@ https://www.youtube.com/watch?v=TJMD8wE_LW0
 ```
 
 ```
+softwareupdate --install-rosetta --agree-to-license
+```
+
+```
 flutter clean
 rm -rf ios/Podfile.lock ios/Pods
 flutter pub get
