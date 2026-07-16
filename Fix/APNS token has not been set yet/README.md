@@ -1,3 +1,8 @@
+#  iOS App - Generate .p8 file for APN Firebase Cloud Messaging not .cert 
+```
+https://www.youtube.com/watch?v=5p3VFlbRzpE
+```
+
 flutter: Error getting FCM token: [firebase_messaging/apns-token-not-set] APNS token has not been set yet. Please ensure the APNS token is available by calling getAPNSToken().
 
 To fix the [`firebase_messaging/apns-token-not-set`] error, you must ensure that Apple Push Notification service (APNs) is fully configured and that the plugin finishes registering with Apple before you call `FirebaseMessaging.instance.getToken()`.
