@@ -15,3 +15,12 @@ Your application cannot request an APNs token from Apple's servers unless the ca
  - Click the `+ Capability` button in the top left.
  - Add `Push Notifications`.
  - Add `Background Modes` and explicitly check the box for `Remote notifications`.
+
+# 2. Configure Firebase Console
+
+Ensure Apple can securely communicate your notification payloads directly to Firebase.
+
+ - Log into the Firebase Console and navigate to your `Project Settings`.
+ - Open the `Cloud Messaging` tab and find your iOS app configuration.
+ - Ensure you have uploaded your `APNs Authentication Key` (`.p8` file) generated from your Apple Developer Account.
+ - Verify that your `Team ID` and `Bundle ID` match your Xcode configurations exactly.
