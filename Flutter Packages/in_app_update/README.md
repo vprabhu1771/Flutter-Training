@@ -39,3 +39,15 @@ class InAppUpdateService {
   }
 
 }
+```
+
+
+```
+ final updateSuccess = await InAppUpdateService.performForceUpdateOnly(context);
+
+    if (!updateSuccess) {
+      // User needs to update - don't proceed
+      debugPrint('Update required - stopping app flow');
+      return;
+    }
+```
