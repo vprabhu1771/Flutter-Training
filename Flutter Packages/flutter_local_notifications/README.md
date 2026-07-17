@@ -75,6 +75,39 @@ class NotificationService {
 }
 ```
 
+`HomeScreen.dart`
+```dart
+import 'package:flutter/material.dart';
+import 'package:untitled/NotificationService.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+            onPressed: () {
+              NotificationService().showNotification(
+                title: "Title",
+                body: "Body"
+              );
+            },
+            child: Text("Send Notification")
+        ),
+      ),
+    );
+  }
+}
+```
+
 `main.dart`
 ```dart
 import 'package:flutter/material.dart';
