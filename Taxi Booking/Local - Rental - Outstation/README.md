@@ -2,7 +2,14 @@ Here's the complete `BookRideScreen` with Local, Hourly, and Outstation tabs wit
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:your_app/theme/app_theme.dart'; // Adjust import as needed
+
+class AppTheme {
+  static const Color primaryYellow = Color(0xFFFFB800);
+  static const Color white = Colors.white;
+  static const Color black = Colors.black;
+
+// Add other theme colors as needed
+}
 
 class BookRideScreen extends StatefulWidget {
   const BookRideScreen({Key? key}) : super(key: key);
@@ -15,16 +22,16 @@ class _BookRideScreenState extends State<BookRideScreen> {
   // Tab State
   String _selectedTab = 'Local';
   final List<String> _mainTabs = ['Local', 'Hourly', 'Outstation'];
-  
+
   // Outstation Sub-tabs
   String _selectedOutstationType = 'Round Trip';
   final List<String> _outstationTypes = ['Round Trip', 'One Way'];
-  
+
   // Vehicle Selection
   String? _selectedVehicleType;
   Map<String, int> _vehicleTypeEta = {};
   bool _isCrossRegion = false;
-  
+
   // Vehicle Data
   List<Map<String, dynamic>> _vehicles = [];
   bool _isLoading = true;
@@ -295,7 +302,7 @@ class _BookRideScreenState extends State<BookRideScreen> {
   @override
   Widget build(BuildContext context) {
     final filteredVehicles = _getFilteredVehicles();
-    
+
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: _buildAppBar(),
@@ -303,33 +310,33 @@ class _BookRideScreenState extends State<BookRideScreen> {
         children: [
           // Location Section
           _buildLocationSection(),
-          
+
           // Main Tab Bar
           _buildMainTabs(),
-          
+
           // Outstation Sub-tabs (only shown when Outstation is selected)
-          if (_selectedTab == 'Outstation') 
+          if (_selectedTab == 'Outstation')
             _buildOutstationSubTabs(),
-          
+
           // Vehicle count indicator
           _buildVehicleCount(filteredVehicles.length),
-          
+
           // Vehicle List
           Expanded(
             child: _isLoading
                 ? _buildLoadingState()
                 : filteredVehicles.isEmpty
-                    ? _buildEmptyState()
-                    : ListView.builder(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        itemCount: filteredVehicles.length,
-                        itemBuilder: (context, index) {
-                          final vehicle = filteredVehicles[index];
-                          return _buildVehicleItem(vehicle, index, showBorder: true);
-                        },
-                      ),
+                ? _buildEmptyState()
+                : ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              itemCount: filteredVehicles.length,
+              itemBuilder: (context, index) {
+                final vehicle = filteredVehicles[index];
+                return _buildVehicleItem(vehicle, index, showBorder: true);
+              },
+            ),
           ),
-          
+
           // Book Button (if vehicle selected)
           if (_selectedVehicleType != null)
             _buildBookButton(),
@@ -514,7 +521,7 @@ class _BookRideScreenState extends State<BookRideScreen> {
                       children: [
                         Icon(
                           tab == 'Local' ? Icons.local_taxi :
-                          tab == 'Hourly' ? Icons.timer : 
+                          tab == 'Hourly' ? Icons.timer :
                           Icons.directions_car,
                           size: 16,
                           color: isSelected ? Colors.white : Colors.grey[700],
@@ -664,20 +671,20 @@ class _BookRideScreenState extends State<BookRideScreen> {
   Widget _buildEmptyState() {
     String message = 'No vehicles available in this category';
     String subMessage = 'Please try another category';
-    
+
     if (_selectedTab == 'Outstation') {
       message = 'No $_selectedOutstationType vehicles available';
       subMessage = 'Try switching to Round Trip or One Way';
     }
-    
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
-            _selectedTab == 'Local' ? Icons.local_taxi_off :
-            _selectedTab == 'Hourly' ? Icons.timer_off : 
-            Icons.directions_car_off,
+            _selectedTab == 'Local' ? Icons.local_taxi :
+            _selectedTab == 'Hourly' ? Icons.timer_off :
+            Icons.local_taxi,
             size: 64,
             color: Colors.grey[400],
           ),
@@ -713,7 +720,7 @@ class _BookRideScreenState extends State<BookRideScreen> {
     final imagePath = vehicle['image'] as String?;
     final capacity = vehicle['capacity'];
     final subType = vehicle['subType'] as String?;
-    
+
     // Get ETA from nearest driver
     final int? driverEta = _vehicleTypeEta[vehicleType];
     final String etaText = driverEta != null ? '$driverEta min' : '-- min';
@@ -760,10 +767,10 @@ class _BookRideScreenState extends State<BookRideScreen> {
           border: showBorder
               ? Border.all(color: isSelected ? AppTheme.primaryYellow : Colors.grey[300]!)
               : isSelected
-                  ? const Border(
-                      left: BorderSide(color: AppTheme.primaryYellow, width: 4),
-                    )
-                  : null,
+              ? const Border(
+            left: BorderSide(color: AppTheme.primaryYellow, width: 4),
+          )
+              : null,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
@@ -786,43 +793,43 @@ class _BookRideScreenState extends State<BookRideScreen> {
                     borderRadius: BorderRadius.circular(6),
                     child: _getServiceImageUrl(imagePath) != null
                         ? Image.network(
-                            _getServiceImageUrl(imagePath)!,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return Container(
-                                color: Colors.grey[200],
-                                child: Icon(
-                                  _getVehicleIcon(vehicleType),
-                                  size: 28,
-                                  color: Colors.grey[700],
-                                ),
-                              );
-                            },
-                            loadingBuilder: (context, child, loadingProgress) {
-                              if (loadingProgress == null) return child;
-                              return Container(
-                                color: Colors.grey[200],
-                                child: const Center(
-                                  child: SizedBox(
-                                    width: 16,
-                                    height: 16,
-                                    child: CircularProgressIndicator(
-                                      strokeWidth: 2,
-                                      valueColor: AlwaysStoppedAnimation<Color>(AppTheme.primaryYellow),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                          )
-                        : Container(
-                            color: Colors.grey[200],
-                            child: Icon(
-                              _getVehicleIcon(vehicleType),
-                              size: 28,
-                              color: Colors.grey[700],
+                      _getServiceImageUrl(imagePath)!,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: Colors.grey[200],
+                          child: Icon(
+                            _getVehicleIcon(vehicleType),
+                            size: 28,
+                            color: Colors.grey[700],
+                          ),
+                        );
+                      },
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Container(
+                          color: Colors.grey[200],
+                          child: const Center(
+                            child: SizedBox(
+                              width: 16,
+                              height: 16,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                valueColor: AlwaysStoppedAnimation<Color>(AppTheme.primaryYellow),
+                              ),
                             ),
                           ),
+                        );
+                      },
+                    )
+                        : Container(
+                      color: Colors.grey[200],
+                      child: Icon(
+                        _getVehicleIcon(vehicleType),
+                        size: 28,
+                        color: Colors.grey[700],
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -911,39 +918,113 @@ class _BookRideScreenState extends State<BookRideScreen> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   // Additional info for Outstation
+                  // if (_selectedTab == 'Outstation') ...[
+                  //   const SizedBox(height: 2),
+                  //   Row(
+                  //     children: [
+                  //       Icon(
+                  //         Icons.route,
+                  //         size: 12,
+                  //         color: Colors.grey[500],
+                  //       ),
+                  //       const SizedBox(width: 4),
+                  //       Text(
+                  //         subType == 'Round Trip' ? 'Round trip available' : 'One way trip',
+                  //         style: TextStyle(
+                  //           fontSize: 10,
+                  //           color: Colors.grey[500],
+                  //         ),
+                  //       ),
+                  //       const SizedBox(width: 8),
+                  //       if (showToll) ...[
+                  //         Icon(
+                  //           Icons.toll,
+                  //           size: 12,
+                  //           color: Colors.grey[500],
+                  //         ),
+                  //         const SizedBox(width: 4),
+                  //         Text(
+                  //           'Toll included',
+                  //           style: TextStyle(
+                  //             fontSize: 10,
+                  //             color: Colors.grey[500],
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ],
+                  //   ),
+                  // ],
+                  // Replace the problematic Row with this:
                   if (_selectedTab == 'Outstation') ...[
                     const SizedBox(height: 2),
-                    Row(
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 2,
                       children: [
-                        Icon(
-                          Icons.route,
-                          size: 12,
-                          color: Colors.grey[500],
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          subType == 'Round Trip' ? 'Round trip available' : 'One way trip',
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.grey[500],
+                        // Route info
+                        Container(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.route,
+                                size: 12,
+                                color: Colors.grey[500],
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                subType == 'Round Trip' ? 'Round trip' : 'One way',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.grey[500],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        const SizedBox(width: 8),
-                        if (showToll) ...[
-                          Icon(
-                            Icons.toll,
-                            size: 12,
-                            color: Colors.grey[500],
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            'Toll included',
-                            style: TextStyle(
-                              fontSize: 10,
-                              color: Colors.grey[500],
+                        // Toll info
+                        if (showToll)
+                          Container(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.toll,
+                                  size: 12,
+                                  color: Colors.grey[500],
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  'Toll included',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    color: Colors.grey[500],
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
+                        // Additional info like distance or time
+                        Container(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.timer,
+                                size: 12,
+                                color: Colors.grey[500],
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                '${driverEta ?? 0} min',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.grey[500],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -1043,7 +1124,7 @@ class _BookRideScreenState extends State<BookRideScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(Icons.ride_share, size: 20),
+                const Icon(Icons.local_taxi, size: 20),
                 const SizedBox(width: 8),
                 Text(
                   'Book $_selectedVehicleType',
@@ -1061,18 +1142,18 @@ class _BookRideScreenState extends State<BookRideScreen> {
   }
 
   // ============ HELPER METHODS ============
-  
+
   List<Map<String, dynamic>> _getFilteredVehicles() {
     return _vehicles.where((vehicle) {
       final vehicleCategory = vehicle['category'] as String? ?? 'Local';
-      
+
       if (_selectedTab != 'Outstation') {
         return vehicleCategory == _selectedTab;
       }
-      
+
       final vehicleSubType = vehicle['subType'] as String? ?? 'Round Trip';
-      return vehicleCategory == 'Outstation' && 
-             vehicleSubType == _selectedOutstationType;
+      return vehicleCategory == 'Outstation' &&
+          vehicleSubType == _selectedOutstationType;
     }).toList();
   }
 
@@ -1089,11 +1170,11 @@ class _BookRideScreenState extends State<BookRideScreen> {
       return Icons.directions_car;
     } else if (vehicleType.toLowerCase().contains('sedan')) {
       return Icons.local_taxi;
-    } else if (vehicleType.toLowerCase().contains('hatchback') || 
-               vehicleType.toLowerCase().contains('mini')) {
+    } else if (vehicleType.toLowerCase().contains('hatchback') ||
+        vehicleType.toLowerCase().contains('mini')) {
       return Icons.time_to_leave;
-    } else if (vehicleType.toLowerCase().contains('luxury') || 
-               vehicleType.toLowerCase().contains('premium')) {
+    } else if (vehicleType.toLowerCase().contains('luxury') ||
+        vehicleType.toLowerCase().contains('premium')) {
       return Icons.airport_shuttle;
     } else {
       return Icons.local_taxi;
@@ -1102,7 +1183,7 @@ class _BookRideScreenState extends State<BookRideScreen> {
 
   void _bookRide() {
     if (_selectedVehicleType == null) return;
-    
+
     // Show booking confirmation dialog
     showDialog(
       context: context,
