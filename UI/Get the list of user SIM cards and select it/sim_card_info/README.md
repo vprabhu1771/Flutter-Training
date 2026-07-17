@@ -1,3 +1,13 @@
+### 1. **Android Permission Issues**
+On Android, reading the phone number requires additional permissions beyond just `READ_PHONE_STATE`:
+
+```dart
+// Add these permissions to your AndroidManifest.xml
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.READ_SMS" />
+<uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+```
+
 ```dart
 import 'dart:async';
 
