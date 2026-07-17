@@ -1,5 +1,7 @@
 ## Dependency ':flutter_local_notifications' requires core library desugaring to be enabled for :app.
 
+`android/app/build.gradle.kts`
+
 ```
 plugins {
     id("com.android.application")
