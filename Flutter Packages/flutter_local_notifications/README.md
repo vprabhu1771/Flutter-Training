@@ -7,7 +7,8 @@ https://pub.dev/packages/flutter_local_notifications
 https://www.youtube.com/watch?v=uKz8tWbMuUw
 ```
 
-```
+`pubspec.yaml`
+```yaml
 flutter_local_notifications: ^20.1.0
 permission_handler: ^11.3.1
 ```
