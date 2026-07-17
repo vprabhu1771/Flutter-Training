@@ -7,6 +7,11 @@ https://pub.dev/packages/flutter_local_notifications
 https://www.youtube.com/watch?v=uKz8tWbMuUw
 ```
 
+```
+flutter_local_notifications: ^20.1.0
+permission_handler: ^11.3.1
+```
+
 Add notification permission to `android/app/src/main/AndroidManifest.xml`:
 
 ```xml
