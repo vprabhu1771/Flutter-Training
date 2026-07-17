@@ -41,27 +41,50 @@ class _MyAppState extends State<MyApp> {
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initSimInfoState() async {
-    await Permission.phone.request();
-    List<SimInfo>? simCardInfo;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      simCardInfo = await _simCardInfoPlugin.getSimInfo() ?? [];
-    } on PlatformException {
-      simCardInfo = [];
-      setState(() {
-        isSupported = false;
-      });
-    }
+  // Future<void> initSimInfoState() async {
+  //   await Permission.phone.request();
+  //   List<SimInfo>? simCardInfo;
+  //   // Platform messages may fail, so we use a try/catch PlatformException.
+  //   // We also handle the message potentially returning null.
+  //   try {
+  //     simCardInfo = await _simCardInfoPlugin.getSimInfo() ?? [];
+  //   } on PlatformException {
+  //     simCardInfo = [];
+  //     setState(() {
+  //       isSupported = false;
+  //     });
+  //   }
+  //
+  //   // If the widget was removed from the tree while the asynchronous platform
+  //   // message was in flight, we want to discard the reply rather than calling
+  //   // setState to update our non-existent appearance.
+  //   if (!mounted) return;
+  //   setState(() {
+  //     _simInfo = simCardInfo;
+  //   });
+  // }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-    setState(() {
-      _simInfo = simCardInfo;
-    });
+  // Request All Required Permissions
+  Future<void> initSimInfoState() async {
+    // Request multiple permissions
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.phone,
+      Permission.sms,
+    ].request();
+
+    // Check if permissions are granted
+    if (await Permission.phone.isGranted && await Permission.sms.isGranted) {
+      try {
+        List<SimInfo>? simCardInfo = await _simCardInfoPlugin.getSimInfo() ?? [];
+        setState(() {
+          _simInfo = simCardInfo;
+        });
+      } catch (e) {
+        print('Error getting SIM info: $e');
+      }
+    } else {
+      print('Permissions not granted');
+    }
   }
 
   @override
