@@ -729,3 +729,8 @@ server.listen(PORT, () => {
 4. You should see both push notification and UI update
 
 Make sure to replace `'http://your-node-server.com:3000'` with your actual Node.js server URL.
+
+![Image](1.png)
+![Image](2.png)
+![Image](3.png)
+![Image](4.png)
