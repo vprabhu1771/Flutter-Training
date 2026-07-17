@@ -611,6 +611,15 @@ class PaymentService {
 
 ### 5. Node.js Server Example (for reference):
 
+```env
+PORT=3000
+HOST=192.168.1.211
+```
+
+```
+npm i express dotenv socket.io
+```
+
 ```javascript
 // server.js
 const express = require('express');
