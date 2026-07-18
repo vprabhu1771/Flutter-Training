@@ -289,6 +289,83 @@ class FirebaseAuthService {
 }
 ```
 
+`LoginScreen.dart`
+```dart
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../AuthProvider.dart';
+
+class LoginScreen extends StatelessWidget {
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController otpController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<AuthProvider>(
+      builder: (context, authProvider, child) {
+        return Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  controller: phoneController,
+                  decoration: InputDecoration(
+                    labelText: 'Phone Number',
+                    errorText: authProvider.errorMessage,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                if (authProvider.isLoading)
+                  const CircularProgressIndicator()
+                else
+                  ElevatedButton(
+                    onPressed: () {
+                      authProvider.sendOTP(phoneController.text);
+                    },
+                    child: const Text('Send OTP'),
+                  ),
+                const SizedBox(height: 20),
+                if (authProvider.autoDetectedCode != null) ...[
+                  Text('Auto-detected OTP: ${authProvider.autoDetectedCode}'),
+                  const SizedBox(height: 10),
+                ],
+                TextField(
+                  controller: otpController,
+                  decoration: InputDecoration(
+                    labelText: 'Enter OTP',
+                    hintText: authProvider.autoDetectedCode ?? '',
+                  ),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: authProvider.isLoading
+                      ? null
+                      : () {
+                    authProvider.verifyOTP(otpController.text);
+                  },
+                  child: const Text('Verify OTP'),
+                ),
+                if (authProvider.isAuthenticated) ...[
+                  const SizedBox(height: 20),
+                  Text('Logged in as: ${authProvider.userPhoneNumber}'),
+                  ElevatedButton(
+                    onPressed: () => authProvider.signOut(),
+                    child: const Text('Sign Out'),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+```
+
 `main.dart`
 ```dart
 import 'package:firebase_core/firebase_core.dart';
