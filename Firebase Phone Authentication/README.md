@@ -1,3 +1,11 @@
+```
+cd android
+```
+
+```
+./gradlew signingReport
+```
+
 `pubspec.yaml`
 ```
 # Firebase
