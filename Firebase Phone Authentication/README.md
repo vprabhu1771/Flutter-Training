@@ -280,3 +280,57 @@ class FirebaseAuthService {
   }
 }
 ```
+
+`main.dart`
+```dart
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
+import 'package:provider/provider.dart';
+import 'package:untitled/screens/LoginScreen.dart';
+import 'AuthProvider.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase
+  try {
+    // Initialize Firebase with options from generated file
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    debugPrint('Firebase initialized successfully!');
+
+    // Initialize Push Notifications
+    // await PushNotificationService().initialize();
+  } catch (e) {
+    debugPrint('Firebase initialization error: $e');
+  }
+
+  // Init Notifications
+  NotificationService().initNotification();
+
+  // runApp(const MyApp());
+
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AuthProvider(),
+      child: MyApp(),
+    ),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      // home: TaxiBookingScreen(),
+      home: LoginScreen()
+    );
+  }
+}
+```
