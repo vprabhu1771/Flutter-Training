@@ -1,10 +1,21 @@
-```
-cd android
-```
+The error `17093` combined with "missing a valid app identifier" is a common Firebase Authentication issue. It means the Firebase backend couldn't verify your app's identity, blocking the SMS from being sent.
 
-```
-./gradlew signingReport
-```
+This is a security measure for Android, and the fix involves a few key configuration steps.
+
+### The Solution: Step-by-Step
+
+Here’s what you need to do, in order:
+
+1.  **Add Your SHA Certificate Fingerprints**
+    This is the most critical step. Firebase needs your app's SHA-1 and SHA-256 fingerprints to verify it's the legitimate app making the request.
+    *   Run this command in your terminal from the root of your project to get the fingerprints for your **debug** keystore:
+        ```bash
+        cd android && ./gradlew signingReport
+        ```
+    *   Look for the `SHA-1` and `SHA-256` values for the `debug` variant.
+    *   Go to your **Firebase Console** > Your Project > **Project Settings** (the gear icon) > **Your apps**.
+    *   Select your Android app, click "Add fingerprint", and paste both the SHA-1 and SHA-256 values.
+
 
 `pubspec.yaml`
 ```
