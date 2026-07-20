@@ -1,3 +1,4 @@
+`pubspec.yaml`
 ```
 geolocator: ^11.0.0 # Use the latest version
 geocoding: ^2.1.0
@@ -19,6 +20,7 @@ crypto: ^3.0.6
                android:value="YOUR_API_KEY"/> 
 ```
 
+`GoogleMapTrackingScreen.dart`
 ```dart
 import 'dart:async';
 import 'dart:convert';
