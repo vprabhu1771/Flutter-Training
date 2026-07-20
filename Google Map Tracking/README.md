@@ -11,6 +11,12 @@ crypto: ^3.0.6
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+
+<meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="YOUR_API_KEY"/> 
 ```
 
 ```dart
