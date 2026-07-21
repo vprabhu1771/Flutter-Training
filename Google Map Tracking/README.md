@@ -1,3 +1,4 @@
+`pubspec.yaml`
 ```
 geolocator: ^11.0.0 # Use the latest version
 geocoding: ^2.1.0
@@ -6,6 +7,20 @@ location: any
 crypto: ^3.0.6
 ```
 
+`android/app/src/main/AndroidManifest.xml`
+```
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+
+<meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="YOUR_API_KEY"/> 
+```
+
+`GoogleMapTrackingScreen.dart`
 ```dart
 import 'dart:async';
 import 'dart:convert';
