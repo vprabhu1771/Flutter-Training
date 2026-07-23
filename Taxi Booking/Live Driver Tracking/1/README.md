@@ -1,3 +1,13 @@
+`app_config.dart`
+
+```dart
+class AppConfig {
+  // Google Maps
+  static const String GOOGLE_MAPS_API_KEY =
+      "YOUR API KEY";
+}
+```
+
 `customer_map2.dart`
 
 ```dart
