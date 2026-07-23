@@ -1,3 +1,17 @@
+`app/src/main/AndroidManifest.xml`
+
+```
+<uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR API KEY"/>
+    </application>
+```
+
 `app_config.dart`
 
 ```dart
