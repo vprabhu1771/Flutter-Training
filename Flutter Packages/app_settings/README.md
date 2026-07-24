@@ -10,7 +10,7 @@ https://pub.dev/packages/app_settings
 
 ```yaml
 dependencies:
-  app_settings: ^8.0.3
+  app_settings: ^7.0.0
 ```
 
 or
