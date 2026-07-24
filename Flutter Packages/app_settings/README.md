@@ -2,7 +2,9 @@ The `app_settings` package lets your Flutter app open specific device settings s
 
 You can find it here:
 
-[app_settings on pub.dev](https://pub.dev/packages/app_settings/versions?utm_source=chatgpt.com)
+```
+https://pub.dev/packages/app_settings
+```
 
 ### Install
 
