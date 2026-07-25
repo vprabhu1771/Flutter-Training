@@ -1,4 +1,6 @@
+```
 https://pub.dev/packages/url_launcher
+```
 
 Your issue is likely due to the `url_launcher` package requiring additional setup for different platforms. Here’s how you can fix it:
 
