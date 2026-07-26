@@ -24,12 +24,13 @@ class _PolylineMapScreenState extends State<PolylineMapScreen> {
   final String _apiKey = AppConfig.GOOGLE_MAP_API_KEY;
 
   // Sample locations
-  final LatLng _origin = LatLng(37.7749, -122.4194); // San Francisco
-  final LatLng _destination = LatLng(37.3382, -121.8863); // San Jose
+  final LatLng _origin = LatLng(11.7505243, 79.7492756); // San Francisco
+  final LatLng _destination = LatLng(11.74631, 79.7557); // San Jose
 
   @override
   void initState() {
     super.initState();
+    // ✅ Initialize without API key (the package doesn't accept it in constructor)
     polylinePoints = PolylinePoints();
     _getRoute();
   }
@@ -48,6 +49,7 @@ class _PolylineMapScreenState extends State<PolylineMapScreen> {
       print('API Key: ${_apiKey.substring(0, 10)}...');
 
       PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+        googleApiKey: _apiKey, // ✅ Pass API key here instead of constructor
         request: PolylineRequest(
           origin: PointLatLng(_origin.latitude, _origin.longitude),
           destination: PointLatLng(_destination.latitude, _destination.longitude),
