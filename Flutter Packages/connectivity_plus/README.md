@@ -1,3 +1,8 @@
+###  How to check Internet Connection in Flutter App? (Android & IOS) 
+```
+https://www.youtube.com/watch?v=JxG252-ERv0
+```
+
 ```yaml
 connectivity_plus: ^4.0.1
 ```
