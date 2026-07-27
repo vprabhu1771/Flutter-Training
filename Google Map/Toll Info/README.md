@@ -54,7 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
       "routeModifiers": {
         "vehicleInfo": {
           "emissionType": "GASOLINE"
-        }
+        },
+        // ADD THIS SECTION WITH THE CORRECT PASS ID FOR INDIA
+        "tollPasses": [
+          "IN_FASTAG" // This is a placeholder; check the docs for the exact ID
+        ]
       }
     };
 
