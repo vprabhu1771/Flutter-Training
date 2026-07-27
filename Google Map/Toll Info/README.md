@@ -36,8 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
       "origin": {
         "location": {
           "latLng": {
-            "latitude": 11.7505243,
-            "longitude": 79.7492756
+            "latitude": 11.7497571,
+            "longitude": 79.7499213
           }
         }
       },
