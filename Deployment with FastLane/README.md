@@ -2,3 +2,8 @@
 ```
 https://dev.to/alimaherofficial/simplifying-flutter-deployment-with-fastlane-1f80
 ```
+
+# Install Fastlane Windows
+```
+gem install fastlane
+```
