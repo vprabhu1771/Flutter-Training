@@ -30,3 +30,5 @@ LANG=en_US.UTF-8
 ```
 gem install fastlane
 ```
+
+ You can run `fastlane supply init` to set up metadata management at a later point.
