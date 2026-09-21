@@ -1,3 +1,5 @@
+https://stackoverflow.com/questions/77089496/flutter-apns-token-has-not-been-set-yet-please-ensure-the-apns-token-is-avail
+
 ##  iOS App - Generate .p8 file for APN Firebase Cloud Messaging not .cert 
 ```
 https://www.youtube.com/watch?v=5p3VFlbRzpE
