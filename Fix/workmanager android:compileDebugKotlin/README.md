@@ -4,17 +4,17 @@ To resolve this issue, apply the updates outlined below based on your configurat
 Open your android/ folder and inspect which setup your app uses:
 ## Scenario A: If you have an android/settings.gradle file
 Look inside the plugins { ... } block and change your Kotlin version to a modern release: [4] 
-
+```
 plugins {
     id "dev.flutter.flutter-plugin-loader" version "1.0.0"
     id "com.android.application" version "8.2.1" apply false
     // Change this line to 1.9.24 or 2.0.0 👇
     id "org.jetbrains.kotlin.android" version "1.9.24" apply false 
 }
-
+```
 ## Scenario B: If you have an android/build.gradle file
 Look inside the buildscript { ... } block and change your ext.kotlin_version: [5] 
-
+```
 buildscript {
     // Change this line to 1.9.24 or 2.0.0 👇
     ext.kotlin_version = '1.9.24' 
@@ -23,10 +23,11 @@ buildscript {
         mavenCentral()
     }
 }
+```
 
 ## 2. Verify JVM Target Alignment
 Modern versions of workmanager require Java 17 target alignments. Open android/app/build.gradle and ensure both your compileOptions and kotlinOptions are aligned to version 17: [6] 
-
+```
 android {
     ...
     compileOptions {
@@ -37,14 +38,15 @@ android {
         jvmTarget = '17'
     }
 }
+```
 
 ## 3. Evict the Cache and Rebuild
 Once the versions are aligned, clear out the cached configurations from your terminal before building again: [7] 
-
+```
 flutter clean
 flutter pub get
 flutter run
-
+```
 If the build fails again after updating the Kotlin plugin, please let me know:
 
 * 
