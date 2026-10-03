@@ -1,3 +1,7 @@
+```
+flutter config --jdk-dir="C:/Program Files/Java/jdk-17"
+```
+
 You can configure the JDK path directly in your project's `gradle.properties` file instead of changing it globally using the Flutter CLI.
 Add the `org.gradle.java.home` property to your `android/gradle.properties` file, pointing it to your JDK installation directory:
 
