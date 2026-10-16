@@ -1,0 +1,5 @@
+```
+flutter clean
+flutter pub get
+cd ios && pod deintegrate && pod cache clean --all && pod install
+```
