@@ -62,3 +62,79 @@ class SoundBoxController {
   }
 }
 ```
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final FlutterTts _flutterTts = FlutterTts();
+
+  @override
+  void initState() {
+    super.initState();
+    initSoundBox(); // ✅ actually initialize the engine
+  }
+
+  // Initialize the engine settings
+  Future<void> initSoundBox() async {
+    await _flutterTts.setLanguage("en-US");
+    await _flutterTts.setSpeechRate(0.5);
+    await _flutterTts.setVolume(1.0);
+    await _flutterTts.setPitch(1.0);
+
+    // Optional: handlers for better UX
+    _flutterTts.setStartHandler(() => debugPrint("TTS started"));
+    _flutterTts.setCompletionHandler(() => debugPrint("TTS completed"));
+    _flutterTts.setErrorHandler((msg) => debugPrint("TTS error: $msg"));
+  }
+
+  // Primary action method to trigger voice
+  Future<void> triggerAlert(String message) async {
+    if (message.isNotEmpty) {
+      await _flutterTts.stop(); // avoid overlapping speech
+      await _flutterTts.speak(message);
+    }
+  }
+
+  // Stop any ongoing speech
+  Future<void> stopAlert() async {
+    await _flutterTts.stop();
+  }
+
+  @override
+  void dispose() {
+    _flutterTts.stop(); // ✅ clean up engine
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+        actions: [
+          IconButton(
+            onPressed: () => triggerAlert("500 Rupees"),
+            icon: const Icon(Icons.refresh),
+          ),
+          IconButton(
+            onPressed: stopAlert,
+            icon: const Icon(Icons.stop),
+          ),
+        ],
+      ),
+      body: const Center(
+        child: Text("Home Screen"),
+      ),
+    );
+  }
+}
+```
