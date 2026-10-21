@@ -25,6 +25,10 @@ To publish a Flutter app on the iOS App Store for production, you must use a mac
 
 The step-by-step process requires configuring your identifier, preparing your release build, uploading the archive, and submitting the store metadata.
 
+```
+https://apps.apple.com/us/app/transporter/id1450874784?mt=12
+```
+
 # 1. Register App Identification
 
 Before building, you must register your app's unique identity with Apple.
