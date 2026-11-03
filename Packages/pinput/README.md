@@ -1,3 +1,9 @@
+`pubspec.yaml`
+```
+pinput: ^7.0.0
+smart_auth: any
+```
+
 `main.dart`
 ```dart
 import 'package:flutter/foundation.dart';
