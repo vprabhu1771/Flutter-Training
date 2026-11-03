@@ -1,7 +1,7 @@
 `pubspec.yaml`
 ```
 pinput: ^7.0.0
-smart_auth: any
+smart_auth: ^3.2.0
 ```
 
 `main.dart`
