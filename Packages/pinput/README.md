@@ -1,3 +1,7 @@
+```
+https://pub.dev/packages/pinput
+```
+
 `pubspec.yaml`
 ```
 pinput: ^7.0.0
